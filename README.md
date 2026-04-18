@@ -1,101 +1,72 @@
 # DIO
-Sistema Bancário com Programação Orientada a Objetos em Python 🐍🏦
-
-Este repositório contém a resolução do desafio de projeto da trilha de Python da Digital Innovation One (DIO). O objetivo foi evoluir um sistema bancário simples para uma estrutura robusta utilizando os pilares da Programação Orientada a Objetos (POO).
-
-🚀 Objetivo do Projeto
-
-Desenvolver um sistema bancário que permita a gestão de clientes e contas, realizando operações de depósito, saque e visualização de extrato, tudo isso aplicando conceitos avançados de Python para criar um código limpo, modular e escalável.
-
-🛠️ Tecnologias Utilizadas
-
-•
-Python 3.x
-
-•
-Biblioteca textwrap: Para formatação de menus e strings.
-
-•
-Biblioteca datetime: Para registro temporal das transações.
-
-•
-Módulo abc: Para implementação de Classes Abstratas.
-
-🏗️ Estrutura e Conceitos de POO Aplicados
-
-Nesta versão, o sistema foi totalmente remodelado para seguir os princípios de POO:
-
-•
-Classes Abstratas (ABC): Implementadas na classe Transacao para garantir que diferentes tipos de movimentações (Saque/Depósito) sigam o mesmo contrato.
-
-•
-Herança:
-
-•
-PessoaFisica herda de Cliente.
-
-•
-ContaCorrente herda de Conta.
 
 
+# Sistema Bancário em Python
 
-•
-Encapsulamento: Uso de atributos privados (_saldo, _historico) e propriedades (@property) para proteger o estado dos objetos.
+Este projeto apresenta uma implementação de um sistema bancário simples em Python, desenvolvido como parte do desafio da Digital Innovation One (DIO). O objetivo é demonstrar conceitos de programação orientada a objetos (POO), modularização e boas práticas de desenvolvimento.
 
-•
-Polimorfismo: O método sacar é sobrescrito em ContaCorrente para incluir validações específicas de limites diários.
+## Funcionalidades
 
-•
-Composição: A classe Conta possui um Historico que armazena uma lista de objetos do tipo Transacao.
+O sistema bancário oferece as seguintes funcionalidades:
 
-📋 Funcionalidades
+*   **Depósito**: Permite depositar valores em uma conta.
+*   **Saque**: Permite sacar valores de uma conta, respeitando limites diários e de valor por saque.
+*   **Extrato**: Exibe o histórico de transações (depósitos e saques) e o saldo atual da conta.
+*   **Criação de Usuário**: Permite cadastrar novos usuários (Pessoa Física) com CPF, nome, data de nascimento e endereço.
+*   **Criação de Conta Corrente**: Permite criar novas contas correntes vinculadas a um usuário existente, com agência e número de conta automáticos.
+*   **Listagem de Contas**: Exibe todas as contas correntes cadastradas no sistema.
 
-1.
-Gestão de Clientes: Cadastro de usuários (Pessoa Física) com CPF único.
+## Melhorias e Abordagem Orientada a Objetos
 
-2.
-Gestão de Contas: Criação de múltiplas contas correntes vinculadas a um cliente.
+Esta versão do sistema bancário foi aprimorada a partir do desafio original da DIO, incorporando os seguintes princípios de Programação Orientada a Objetos (POO):
 
-3.
-Operações Bancárias:
+*   **Classes Abstratas (`ABC`)**: Utilização de classes abstratas para definir interfaces e garantir a implementação de métodos essenciais em subclasses, como `Transacao`.
+*   **Herança**: Reutilização de código e especialização de classes, como `PessoaFisica` herdando de `Cliente` e `ContaCorrente` herdando de `Conta`.
+*   **Encapsulamento**: Proteção de dados internos das classes através de atributos privados (`_`) e propriedades (`@property`).
+*   **Polimorfismo**: Capacidade de objetos de diferentes classes responderem a uma mesma mensagem de forma diferente, como o método `sacar` em `Conta` e `ContaCorrente`.
+*   **Modularização**: Organização do código em classes e funções bem definidas, facilitando a manutenção e a escalabilidade.
 
-•
-Depósito: Incrementa o saldo e registra no histórico.
+As principais classes implementadas são:
 
-•
-Saque: Valida saldo, limite por saque e quantidade máxima de saques diários.
+*   `Cliente`: Classe base para clientes, com métodos para realizar transações e adicionar contas.
+*   `PessoaFisica`: Subclasse de `Cliente` para representar pessoas físicas, com atributos específicos como CPF.
+*   `Conta`: Classe base para contas bancárias, com funcionalidades de depósito e saque.
+*   `ContaCorrente`: Subclasse de `Conta` que adiciona limites de saque e número de saques diários.
+*   `Historico`: Gerencia o histórico de transações de uma conta.
+*   `Transacao`, `Saque`, `Deposito`: Classes abstratas e concretas para representar diferentes tipos de transações.
 
-•
-Extrato: Exibe detalhadamente todas as transações e o saldo atual.
+## Como Executar
 
+Para executar o sistema bancário, siga os passos abaixo:
 
+1.  **Salve o código**: Certifique-se de que o arquivo `sistema_bancario.py` está salvo em seu ambiente local.
 
-📂 Como Executar
+2.  **Execute o script Python**:
 
-1.
-Certifique-se de ter o Python instalado em sua máquina.
+    Abra um terminal ou prompt de comando, navegue até o diretório onde o arquivo `sistema_bancario.py` foi salvo e execute o seguinte comando:
 
-2.
-Baixe o arquivo sistema_bancario.py.
+    ```bash
+    python3 sistema_bancario.py
+    ```
 
-3.
-Execute o script via terminal:
+    O programa será iniciado no terminal, apresentando um menu de opções para interagir com o sistema bancário.
 
-Bash
+## Estrutura do Projeto
 
+```
+. 
+├── README.md
+└── sistema_bancario.py
+```
 
-python sistema_bancario.py
+## Contribuição
 
+Sinta-se à vontade para fazer um fork deste repositório, propor melhorias e contribuir com o projeto. Toda contribuição é bem-vinda!
 
+## Autor
 
+Victor Santos Barcelos
 
+## Licença
 
-👤 Autor
-
-Desenvolvido por Victor Santos Barcelos durante a trilha de Python da DIO, com o auxílio do Manus AI.
-
-
-
-
-Este projeto faz parte do meu portfólio pessoal. Sinta-se à vontade para explorar, clonar e sugerir melhorias!
-
+Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes. (Nota: O arquivo LICENSE não está incluído neste exemplo, mas seria uma boa prática adicioná-lo.)
